@@ -41,4 +41,6 @@ class ExerciseLog(Base):
     log_id = Column(Integer, primary_key=True)
     exercise_id = Column(Integer, ForeignKey("Exercises.exercise_id"))
     workout_id = Column(Integer, ForeignKey("Workouts.workout_id"))
+    duration = Column(Integer)  # Added duration column
+    intensity = Column(Integer)  # Added intensity column
 

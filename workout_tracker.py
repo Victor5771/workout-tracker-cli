@@ -1,5 +1,5 @@
 from database import create_connection
-from models import User, Exercise, Workout, ExerciseLog
+from models import User, Exercise, Workout, ExerciseLog, Goal  # Add Goal import
 from datetime import datetime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
@@ -59,6 +59,24 @@ class WorkoutTracker:
             self.session.rollback()
             print("Error occurred while logging workout:", e)
 
+    def add_goal(self, username):
+        try:
+            user = self.session.query(User).filter_by(username=username).first()
+            if not user:
+                print(f"User '{username}' not found.")
+                return
+
+            target_calories_per_week = int(input("Enter target calories per week: "))
+            muscle_group_improvements = input("Enter muscle groups to improve (comma-separated): ")
+
+            new_goal = Goal(user_id=user.id, target_calories_per_week=target_calories_per_week, muscle_group_improvements=muscle_group_improvements)
+            self.session.add(new_goal)
+            self.session.commit()
+            print("Goal added successfully.")
+        except (SQLAlchemyError, ValueError) as e:
+            self.session.rollback()
+            print("Error occurred while adding goal:", e)
+
     def __del__(self):
         self.session.close()
 
@@ -66,3 +84,4 @@ class WorkoutTracker:
 # tracker = WorkoutTracker()
 # tracker.add_exercise("Push-ups")
 # tracker.log_workout("your_username")
+# tracker.add_goal("your_username")
