@@ -1,3 +1,4 @@
+# exercise.py
 class Exercise:
     def __init__(self, name, targeted_muscle_groups, calories_burned_per_minute):
         self.name = name
