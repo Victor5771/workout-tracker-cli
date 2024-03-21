@@ -66,8 +66,3 @@ For any questions or feedback, feel free to reach out:
 - GitHub: [Victor5771](https://github.com/Victor5771)
 
 
-## Contact
-For any questions or feedback, feel free to reach out:
-- Email: your_email@example.com
-- GitHub: [your_username](https://github.com/your_username)
-
