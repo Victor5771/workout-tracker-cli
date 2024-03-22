@@ -24,11 +24,32 @@ The Workout Tracker CLI is a command-line application designed to help users tra
 
 
 ## Usage
+
 - Add exercise:
    python3 cli.py --add-exercise "Push-ups"
 
 - Log workout:
-   python3 cli.py --log-workout "your_username"
+   python3 cli.py --log-workout "your_username" (john_doe)
+
+- To test the add_goal functionality, you can use the following command:
+   python3 cli.py --add-goal "john_doe"
+
+## Tests for  the SQLite database
+- To view the goals made, you can execute the following SQLite command in your terminal:
+   sqlite3 workout_tracker.db
+
+-  view the goals:
+  SELECT * FROM Goals;
+- view all the logged workouts, you can run:
+  SELECT * FROM Workouts;
+- view the exercise logs associated with the workouts, you can run:
+  SELECT * FROM ExerciseLogs;
+- View all Exercises:
+   SELECT * FROM Exercises;
+
+
+
+
 
 
 ## Contributing
