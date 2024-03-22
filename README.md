@@ -46,10 +46,10 @@ The Workout Tracker CLI is a command-line application designed to help users tra
   SELECT * FROM ExerciseLogs;
 - View all Exercises:
    SELECT * FROM Exercises;
-
-
-
-
+- Insert users :
+  INSERT INTO Users (username, email) VALUES ('user1', 'user1@example.com');
+- View all Users
+ SELECT * FROM Users;
 
 
 ## Contributing
